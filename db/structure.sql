@@ -25,9 +25,9 @@ DROP TABLE IF EXISTS `ArticulosPrescritos`;
 CREATE TABLE `ArticulosPrescritos` (
   `aid` int(11) NOT NULL DEFAULT '0',
   `cid` int(11) DEFAULT NULL,
-  `nombre` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `cantidad` int(11) NOT NULL,
-  `frecuencia` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `frecuencia` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`aid`),
   KEY `cid` (`cid`),
   CONSTRAINT `articulosprescritos_ibfk_1` FOREIGN KEY (`cid`) REFERENCES `Citas` (`cid`)
@@ -84,16 +84,16 @@ DROP TABLE IF EXISTS `Pacientes`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Pacientes` (
   `pid` int(11) NOT NULL DEFAULT '0',
-  `nombre` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
-  `apellido` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `nombre` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
+  `apellido` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
   `telefono` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `tipo_sangre` varchar(3) COLLATE utf8_unicode_ci NOT NULL,
   `sexo` char(1) COLLATE utf8_unicode_ci NOT NULL,
-  `religion` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `religion` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `edo_civil` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `fechaNacimiento` datetime NOT NULL,
-  `direccion` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `direccion` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `doc_id` int(11) NOT NULL,
   PRIMARY KEY (`pid`),
   KEY `doc_id` (`doc_id`),
@@ -111,7 +111,7 @@ DROP TABLE IF EXISTS `Padecimientos`;
 CREATE TABLE `Padecimientos` (
   `eid` int(11) NOT NULL DEFAULT '0',
   `hid` int(11) DEFAULT NULL,
-  `nombre` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `descripcion` varchar(150) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Descripción del padecimiento',
   PRIMARY KEY (`eid`),
   KEY `hid` (`hid`),
@@ -128,8 +128,8 @@ DROP TABLE IF EXISTS `Vacunas`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Vacunas` (
   `vid` int(11) NOT NULL DEFAULT '0',
-  `nombre` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
-  `description` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`vid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -160,9 +160,9 @@ DROP TABLE IF EXISTS `assistants`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `assistants` (
   `aid` int(11) NOT NULL DEFAULT '0',
-  `name` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `mail` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `password_diegest` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `mail` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `password_digest` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `doc_id` int(11) NOT NULL,
   PRIMARY KEY (`aid`),
   KEY `doc_id` (`doc_id`),
@@ -208,5 +208,5 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-12-07 20:08:13
+-- Dump completed on 2013-12-07 20:40:52
 INSERT INTO schema_migrations (version) VALUES ('20131208003144');
