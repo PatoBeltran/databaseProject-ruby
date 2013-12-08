@@ -11,7 +11,11 @@
     <%= content_tag :div, msg, id: "flash_#{name}" %>
   <% end %>
     <% if current_user %>
-      Logged in as <%= current_user.mail %>.
+      Logged in as 
+      <% if is_doctor %>
+        Dr.
+      <% end %>
+      <%= current_user.name %>
       <%= link_to "Log Out", logout_path %>
     <% else %>
       <%= link_to "Sign Up", signup_path %> or
