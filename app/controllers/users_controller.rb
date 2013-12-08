@@ -13,6 +13,7 @@ class UsersController < ApplicationController
       raw_sql = "INSERT INTO users (u_id, name, mail, password_digest) VALUES ('#{id}', '#{@user.name}', '#{@user.mail}', '#{@user.password_digest}')"
       ActiveRecord::Base.connection.execute raw_sql
 
+      session[:user_id] = id
       redirect_to root_url, notice: "Thank you for signing up!"
     rescue 
       render :new
