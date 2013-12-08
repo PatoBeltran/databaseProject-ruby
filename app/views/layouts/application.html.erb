@@ -1,28 +1,77 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BDPed</title>
+  <title>Equipo Rojo</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, id: "flash_#{name}" %>
-  <% end %>
-    <% if current_user %>
-      Logged in as 
-      <% if is_doctor %>
-        Dr.
-      <% end %>
-      <%= current_user.name %>
-      <%= link_to "Log Out", logout_path %>
-    <% else %>
-      <%= link_to "Sign Up", signup_path %> or
-      <%= link_to "Log In", login_path %>
-    <% end %>
-
-<%= yield %>
-
+  <!-- You better not move this -->
+  <div class="panels">
+    <div class="panel panel-inverse panel-left">
+    </div>
+  </div>
+  <!-- Seriously don't move the code above -->
+  <div class="panel-content">
+    <!-- ====================================== -->
+    <div class="doc-bg">
+      <!-- All your content goes here -->
+        <% if current_user %>
+            <!-- ================= AQUI VA EL NAVBAR ================-->
+              <div class="navbar">
+                <div class="navbar-inner">
+                  <div class="container">
+                    <a href="#menu" class="menu-trigger meteocon" data-meteocon="M" data-toggle="panel" data-target="#menu"></a>
+                    <div class="nav-collapse collapse">
+                      <nav id="menu">
+                        <ul class="nav">
+                          <li><%=link_to "RED Team", root_path, class:"brand logo-small" %></li>
+                          <li><p class="navbar-text"><b>
+                                <% if is_doctor %>
+                                  Dr.
+                                <% end %>
+                                <%= current_user.name %>
+                              </b></p>
+                          </li>
+                          <li class="divider"></li>
+                          <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Patients<b class="caret bottom-up"></b></a>
+                          <ul class="dropdown-menu bottom-up pull-right">
+                            <li><a href="#">New Patient</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">All Patients</a></li>
+                          </ul>
+                          </li>
+                          <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Appointments<b class="caret bottom-up"></b></a>
+                          <ul class="dropdown-menu bottom-up pull-right">
+                            <li><a href="#">New Appointment</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Upcomming Appointments</a></li>
+                          </ul>
+                          </li>
+                          <li><a href="#">Add Assistant</a></li>
+                          <li><%= link_to "Log Out", logout_path %></li>
+                        </ul>
+                        <form action="" method="get" accept-charset="utf-8" class="navbar-form pull-right search-navbar-form">
+                          <div class="form-fields">
+                            <input type="text" name="" id="" value="" placeholder="Search patients" class="">
+                          </div>
+                          <input type="submit" name="" id="" value="Search" class="btn btn-info">
+                        </form>
+                      </nav>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <!-- ================= AQUI VA EL NAVBAR ================-->
+          <% end %>
+      <div class="wrapper">
+        <%= yield %>
+      </div>
+    </div>
+    <!-- ====================================== -->
+  </div>
 </body>
 </html>

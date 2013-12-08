@@ -1,13 +1,55 @@
-<h1>Log In</h1>
-
-<%= form_tag sessions_path do %>
-  <div class="field">
-    <%= label_tag :mail %><br />
-    <%= text_field_tag :mail, params[:mail] %>
+<div class="row">
+  <div class="col-12 logo">
+    <%= image_tag "logo.png", alt: "Logo" %>
   </div>
-  <div class="field">
-    <%= label_tag :password %><br />
-    <%= password_field_tag :password %>
+</div>
+<div class="row">
+  <div class="navi col-12">
+    <div class="nav-box">
+      <%= link_to "Login", login_path %>
+      |
+      <%= link_to "Signup", signup_path %>
+    </div>
   </div>
-  <div class="actions"><%= submit_tag "Log In" %></div>
-<% end %>
+</div>
+<div class="row right-txt">
+  <div class="col-12">
+    <p>Get to the patients.</p>
+    <p>We take care of the rest.</p>
+  </div>
+</div>
+<!-- ==================== login code =============== -->
+<div class="login-container">
+  <div class="supp-lightbox">
+    <div class="wrapper">
+      <div class="row">
+        <div class="col-12">
+          <h2>
+            Please enter your credentials. 
+          </h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <%= form_tag sessions_path do %>
+            <div class="form-field">
+              <%= label_tag :mail %><br />
+              <%= text_field_tag :mail, params[:mail] %>
+            </div>
+            <div class="form-field">
+              <%= label_tag :password %><br />
+              <%= password_field_tag :password %>
+            </div>
+            <div class="actions"><%= submit_tag "Log In" %></div>
+          <% end %>
+          <div class="msg">
+            <p> No account? <%= link_to "Sign up now!", signup_path %></p>
+          </div>
+          <div class="go-back">
+            <%=link_to "Back to home page", root_path %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

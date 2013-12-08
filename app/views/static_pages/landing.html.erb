@@ -1,0 +1,24 @@
+<% if current_user %>
+  <% # render home %>
+<% else %>
+  <div class="row">
+    <div class="col-12 logo">
+      <%= image_tag "logo.png", alt: "Logo" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="navi col-12">
+      <div class="nav-box">
+        <%= link_to "Login", login_path %>
+        |
+        <%= link_to "Signup", signup_path %>
+      </div>
+    </div>
+  </div>
+  <div class="row right-txt">
+    <div class="col-12">
+      <p>Get to the patients.</p>
+      <p>We take care of the rest.</p>
+    </div>
+  </div>
+<% end %>
