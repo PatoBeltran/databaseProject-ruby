@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'annotate'
 gem 'bcrypt-ruby'
+gem 'debugger'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
