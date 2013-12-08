@@ -1,8 +1,8 @@
 CREATE TABLE users(
   u_id int,
-  name varchar(30) not null,
-  mail varchar(30) not null,
-  password_digest varchar(30) not null,
+  name varchar(255) not null,
+  mail varchar(255) not null,
+  password_digest varchar(255) not null,
   PRIMARY KEY(u_id)
 );
 

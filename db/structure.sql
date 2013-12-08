@@ -192,9 +192,9 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
   `u_id` int(11) NOT NULL DEFAULT '0',
-  `name` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `mail` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `password_digest` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `mail` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `password_digest` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`u_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -208,5 +208,5 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-12-07 19:17:42
+-- Dump completed on 2013-12-07 20:08:13
 INSERT INTO schema_migrations (version) VALUES ('20131208003144');
