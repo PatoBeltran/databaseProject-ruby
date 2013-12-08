@@ -1,15 +1,9 @@
-CREATE DATABASE DBPP-ITESM;
-
-use DBPP-ITESM;
-
-set dateformat dmy
-
 CREATE TABLE users(
   u_id int,
   name varchar(30) not null,
   mail varchar(30) not null,
-  password_diegest varchar(30) not null,
-  PRIMARY KEY(u_id),
+  password_digest varchar(30) not null,
+  PRIMARY KEY(u_id)
 );
 
 CREATE TABLE assistants(
