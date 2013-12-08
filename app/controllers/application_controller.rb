@@ -6,8 +6,11 @@ class ApplicationController < ActionController::Base
   private
 
   def current_user
-    @current_user ||= User.find_by_sql("SELECT * FROM users WHERE u_id = #{session[:user_id]}")[0] if session[:user_id]
-    @current_user ||= Assistant.find_by_sql("SELECT * FROM users WHERE aid = #{session[:user_id]}")[0] if session[:user_id]
+    if session[:type] == 1
+      @current_user ||= User.find_by_sql("SELECT * FROM users WHERE u_id = #{session[:user_id]}")[0] if session[:user_id]
+    else
+      @current_user ||= Assistant.find_by_sql("SELECT * FROM assistants WHERE aid = #{session[:user_id]}")[0] if session[:user_id]
+    end
   end
 
   def is_doctor
@@ -16,7 +19,11 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user, :is_doctor
 
-  def authorize
+  def has_to_authenticate
     redirect_to login_url, alert: "Not authorized" if current_user.nil?
+  end
+
+  def just_doctor
+    redirect_to root_url, alert: "Not authorized, you have to be a doctor" unless is_doctor
   end
 end

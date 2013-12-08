@@ -7,10 +7,12 @@ class SessionsController < ApplicationController
     assistant = Assistant.find_by_sql("SELECT * FROM assistants WHERE mail = '#{params[:mail]}'")[0]
 
     if user.present? && user.authenticate(params[:password])
+      session[:type] = 1
       session[:user_id] = user.u_id
       redirect_to root_url, notice: "Logged in!"
     elsif assistant.present? && assistant.authenticate(params[:password])
-      session[:user_id] = user.a_id
+      session[:type] = 2
+      session[:user_id] = assistant.aid
       redirect_to root_url, notice: "Logged in!"
     else
       flash.now.alert = "Email or password is invalid"
