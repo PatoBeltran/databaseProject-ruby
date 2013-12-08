@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'annotate'
 gem 'bcrypt-ruby'
 gem 'debugger'
+gem 'furatto', git: 'git@github.com:IcaliaLabs/furatto-rails.git'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -35,6 +36,9 @@ gem 'jbuilder', '~> 1.2'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
+end
+group :assets do
+  gem 'compass-rails', '~> 2.0.alpha.0'
 end
 
 # Use ActiveModel has_secure_password
