@@ -1,0 +1,19 @@
+<div class="patient-section">
+  <p>
+    <%= @todo.apellido %>, <%= @todo.nombre %> 
+  </p>
+  <p>
+    Peso Actual: <%= @cita.peso_actual %>
+  </p>
+  <p>
+    Altura Actual: <%= @cita.altura_actual %>
+  </p>
+  <p>
+    Edad Actual: <%= @cita.edad_actual %>
+  </p>
+  <p>
+  <% if is_doctor %>
+    <%= link_to "Edit", edit_cita_path(@cita) %>
+  <% end %>
+  </p>
+</div>

@@ -1,0 +1,45 @@
+<div class="login-container">
+  <div class="supp-lightbox">
+    <div class="wrapper">
+      <div class="row">
+        <div class="col-12">
+          <h2>
+            Crea una cita.
+          </h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="row">
+            <%= form_for @cita, url: citas_url , class: "no-margin" do |f| %>
+              <div class="form-field col-6">
+              <%= f.label :pid, "Paciente" %><br />
+              <% if @pacientes.present? %>
+                <%= f.select :pid, options_for_select(@pacientes)%>
+              <% else %>
+                <%= link_to "Crea un paciente", new_paciente_path %>
+              <% end %>
+              <% #, "data-datepicker" => true, "data-format-submit" => "yyyy-mm-dd", "data-select-years" => true, "data-select-months" => true %>
+            </div>
+            <div class="form-field col-6">
+              <%= f.label :fecha %><br />
+              <%= f.text_field :fecha, class:"input-block" %>
+              <% #, "data-datepicker" => true, "data-format-submit" => "yyyy-mm-dd", "data-select-years" => true, "data-select-months" => true %>
+            </div>
+            <div class="form-field col-12">
+              <%= f.label :comentario %><br />
+              <%= f.text_field :comentario, class:"input-block" %>
+            </div>
+            <div class="actions">
+              <%= f.submit "Submit" %>
+            </div>
+          <% end %>
+          </div>
+          <div class="go-back">
+            <%=link_to "Go Back", pacientes_path %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

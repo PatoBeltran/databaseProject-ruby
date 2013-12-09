@@ -1,0 +1,40 @@
+<div class="login-container">
+  <div class="supp-lightbox">
+    <div class="wrapper">
+      <div class="row">
+        <div class="col-12">
+          <h2>
+            Modifica su edad, estatura y peso.
+          </h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="row">
+            <%= simple_form_for @cita, url: cita_url(@cita), class: "no-margin" do |f| %>
+              <div class="form-field col-4">
+              <%= f.label :edad_actual %><br />
+              <%= f.text_field :edad_actual, class:"input-block" %>
+            </div>
+            <div class="form-field col-4">
+              <%= f.label :peso_actual %><br />
+              <%= f.text_field :peso_actual, class:"input-block" %>
+            </div>
+            <div class="form-field col-4">
+              <%= f.label :altura_actual %><br />
+              <%= f.text_field :altura_actual, class:"input-block" %>
+            </div>
+            <%= f.hidden_field :cid, class:"input-block" %>
+            <div class="actions">
+              <%= f.submit "Submit" %>
+            </div>
+          <% end %>
+          </div>
+          <div class="go-back">
+            <%=link_to "Go Back", pacientes_path %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

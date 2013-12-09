@@ -1,0 +1,18 @@
+<% @citas.each do |cita| %>
+  <div class="cita-section">
+    <p>
+    <%=link_to cita_path(Cita.find_by_sql("SELECT * FROM citas WHERE cid = '#{cita.cid}'")[0]) do %>
+      <%= cita.fecha %>
+    <% end %>
+    </p>
+    <p>
+      <%= cita.apellido %>, <%= cita.nombre %>
+    </p>
+    <p>
+      <%= cita.comentario %>
+    </p>
+    <p>
+      <%= cita.telefono %>
+    </p>
+  </div>
+<% end %>
