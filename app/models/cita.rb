@@ -6,9 +6,9 @@
 #  pid           :integer
 #  fecha         :date             not null
 #  comentario    :string(140)      default("sin atender"), not null
-#  edad_actual   :integer          not null
-#  peso_actual   :integer          not null
-#  altura_actual :integer          not null
+#  edad_actual   :integer          default(0)
+#  peso_actual   :integer          default(0)
+#  altura_actual :integer          default(0)
 #  doc_id        :integer          not null
 #
 
