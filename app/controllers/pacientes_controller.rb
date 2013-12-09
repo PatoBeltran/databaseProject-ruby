@@ -21,7 +21,7 @@ class PacientesController < ApplicationController
 
       ActiveRecord::Base.connection.execute raw_sql
 
-      redirect_to pacientes_url, notice: "Your patient has been added!"
+      redirect_to pacientes_url, notice: "¡Tu paciente ha sido agregado!"
     rescue
       render :new
     end
@@ -41,9 +41,9 @@ class PacientesController < ApplicationController
 
       ActiveRecord::Base.connection.execute raw_sql
 
-      redirect_to pacientes_url, notice: "Your patient has been modified!"
+      redirect_to pacientes_url, notice: "¡Tu paciente ha sido modificado!"
     rescue
-      render :new
+      render :edit
     end
   end
 
