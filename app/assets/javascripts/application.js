@@ -25,6 +25,5 @@ $(document).ready(function() {
     hiddenSuffix: '__suffix',
     editable: true,
     selectYears: 10,
-    max: true
   })
 });
