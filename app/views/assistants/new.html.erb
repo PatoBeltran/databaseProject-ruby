@@ -1,44 +1,42 @@
-<!-- ==================== signup code =============== -->
 <div class="login-container">
-    <div class="supp-lightbox">
-      <div class="wrapper">
-        <div class="row">
-          <div class="col-12">
-            <h2>
-              Welcome! <br />
-              Enter your assistant's information.
-            </h2>
-          </div>
+  <div class="supp-lightbox">
+    <div class="wrapper">
+      <div class="row">
+        <div class="col-12">
+          <h2>
+            Enter your assistant's information.
+          </h2>
         </div>
-        <div class="row">
-          <div class="col-12">
-            <%= form_for @assistant, class: "no-margin" do |f| %>
-              <div class="form-field">
-                <%= f.label :name %><br />
-                <%= f.text_field :name, class:"input-block" %>
-              </div>
-              <div class="form-field">
-                <%= f.label :mail %><br />
-                <%= f.text_field :mail, class:"input-block"  %>
-              </div>
-              <div class="form-field">
-                <%= f.label :password %><br />
-                <%= f.password_field :password, class:"input-block"  %>
-              </div>
-              <div class="form-field">
-                <%= f.label :password_confirmation %><br />
-                <%= f.password_field :password_confirmation, class:"input-block"  %>
-              </div>
-              <div class="actions">
-                <%= f.submit "Sign Up" %>
-              </div>
-            <% end %>
-            <div class="go-back">
-              <%=link_to "Back to home page", root_path %>
-            </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <%= form_for @assistant, class: "no-margin" do |f| %>
+            <div class="form-field">
+            <%= f.label :name %><br />
+            <%= f.text_field :name, class:"input-block" %>
+          </div>
+          <div class="form-field">
+            <%= f.label :mail %><br />
+            <%= f.text_field :mail, class:"input-block"  %>
+          </div>
+          <div class="form-field">
+            <%= f.label :password %><br />
+            <%= f.password_field :password, class:"input-block"  %>
+          </div>
+          <div class="form-field">
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, class:"input-block"  %>
+          </div>
+          <div class="actions">
+            <%= f.submit "Sign Up" %>
+          </div>
+        <% end %>
+          <div class="go-back">
+            <%=link_to "Back to home page", root_path %>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 

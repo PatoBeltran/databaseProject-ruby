@@ -41,13 +41,9 @@
                       <li class="dropdown">
                       <a class="dropdown-toggle" data-toggle="dropdown" href="#">Patients<b class="caret bottom-up"></b></a>
                       <ul class="dropdown-menu bottom-up pull-right">
-                        <li><a href="#">New Patient</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">All Patients</a></li>
+                        <li><%= link_to "New Patient", new_paciente_path %></li>
                       </ul>
                       </li>
-                    <% else %>
-                      <li><%= link_to "List Patients", "#"%></li>
                     <% end %>
                     <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Appointments<b class="caret bottom-up"></b></a>

@@ -15,3 +15,16 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+$(document).ready(function() {
+  $('#datePicker').pickadate({
+    format: 'dd/mm/yyyy',
+    formatSubmit: 'yyyy-mm-dd',
+    hiddenPrefix: 'prefix__',
+    hiddenSuffix: '__suffix',
+    editable: true,
+    selectYears: 10,
+    max: true
+  })
+});
