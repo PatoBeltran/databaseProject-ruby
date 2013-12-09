@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       ActiveRecord::Base.connection.execute raw_sql
 
       session[:user_id] = id
-      redirect_to root_url, notice: "Thank you for signing up!"
+      redirect_to root_url, notice: "¡Gracias por registrarte!"
     rescue 
       render :new
     end

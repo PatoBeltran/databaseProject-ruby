@@ -8,7 +8,8 @@
   <p>
   <% if is_doctor %>
     <%= link_to "Editar", edit_paciente_path(@paciente) %><br />
-    <%= link_to "Agregar padecimiento", new_paciente_historialmedico_path(@paciente) %>
+    <%= link_to "Agregar padecimiento", new_paciente_historialmedico_path(@paciente) %><br />
+    <%= link_to "Agregar vacuna", new_paciente_vacuna_path(@paciente) %>
   <% end %>
   </p>
 </div>
