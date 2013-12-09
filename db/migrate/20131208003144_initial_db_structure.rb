@@ -9,7 +9,7 @@ class InitialDbStructure < ActiveRecord::Migration
     end
   end
   def down
-    drop_table :vacunasdehistorial
+    drop_table :vacunasdepacientes
     drop_table :articulosprescritos
     drop_table :padecimientos
     drop_table :citas
