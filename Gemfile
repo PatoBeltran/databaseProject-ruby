@@ -5,6 +5,7 @@ gem 'bcrypt-ruby'
 gem 'debugger'
 gem 'compass-rails', '~> 2.0.alpha.0'
 gem 'furatto', git: 'git@github.com:IcaliaLabs/furatto-rails.git'
+gem 'simple_form'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
