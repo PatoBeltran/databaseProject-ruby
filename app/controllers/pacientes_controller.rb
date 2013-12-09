@@ -74,11 +74,21 @@ class PacientesController < ApplicationController
   end
   def vacunas
     if is_doctor
-      current_user.u_id
-      @pacientes = Paciente.find_by_sql("SELECT pid, nombre, apellido,  telefono, tipo_sangre, sexo, religion, edo_civil, fechaNacimiento, direccion, email FROM Pacientes WHERE CONCAT(nombre, ' ', apellido) like '#{p}' AND doc_id = '#{current_user.u_id}';")
+      @pacientes = Paciente.find_by_sql("SELECT p.pid, p.nombre, p.apellido, p.fechaNacimiento, p.tipo_sangre FROM Pacientes p WHERE p.doc_id = '#{current_user.u_id}' AND NOT EXISTS
+				(SELECT vp.vid
+				FROM VacunasDePacientes vp
+				WHERE EXISTS
+								(SELECT v.vid
+								FROM Vacunas v
+								WHERE p.pid = vp.pid AND vp.vid = v.vid))")
     else
-      current_user.aid
-      @pacientes = Paciente.find_by_sql("SELECT pid, nombre, apellido,  telefono, tipo_sangre, sexo, religion, edo_civil, fechaNacimiento, direccion, email FROM Pacientes WHERE CONCAT(nombre, ' ', apellido) like '#{p}' AND doc_id = '#{current_user.u_id}';")
+      @pacientes = Paciente.find_by_sql("SELECT p.pid, p.nombre, p.apellido, p.fechaNacimiento, p.tipo_sangre FROM Pacientes p WHERE p.doc_id = '#{current_user.doc_id}' AND NOT EXISTS
+				(SELECT vp.vid
+				FROM VacunasDePacientes vp
+				WHERE EXISTS
+								(SELECT v.vid
+								FROM Vacunas v
+                WHERE p.pid = vp.pid AND vp.vid = v.vid))")
     end
   end
 
