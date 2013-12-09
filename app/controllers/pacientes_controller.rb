@@ -52,10 +52,17 @@ class PacientesController < ApplicationController
   end
 
   def index
-    if is_doctor
-      @pacientes = Paciente.find_by_sql("SELECT * FROM pacientes WHERE doc_id = '#{current_user.u_id}';")
+    if params[:search]
+      parametros = params[:search].split(" ")
+      p = parametros.join("%")
     else
-      @pacientes = Paciente.find_by_sql("SELECT * FROM pacientes WHERE doc_id = '#{current_user.doc_id}';")
+      p = ""
+    end
+    p << "%"
+    if is_doctor
+      @pacientes = Paciente.find_by_sql("SELECT  nombre, apellido,  telefono, tipo_sangre, sexo, religion, edo_civil, fechaNacimiento, direccion, email FROM Pacientes WHERE CONCAT(nombre, ' ', apellido) like '#{p}’' AND doc_id = '#{current_user.u_id}';")
+    else
+      @pacientes = Paciente.find_by_sql("SELECT  nombre, apellido,  telefono, tipo_sangre, sexo, religion, edo_civil, fechaNacimiento, direccion, email FROM Pacientes WHERE CONCAT(nombre, ' ', apellido) like '#{p}’' AND doc_id = '#{current_user.doc_id}';")
     end
   end
 
