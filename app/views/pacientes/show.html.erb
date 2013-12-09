@@ -1,0 +1,10 @@
+<div class="patient-section">
+  <p>
+    <%= @paciente.apellido %>, <%= @paciente.nombre %> 
+  </p>
+  <p>
+  <% if is_doctor %>
+    <%= link_to "Edit", edit_paciente_path(@paciente) %>
+  <% end %>
+  </p>
+</div>

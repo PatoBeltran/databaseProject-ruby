@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-12">
+    <div class="row">
+    <%= form_for @paciente, class: "no-margin" do |f| %>
+      <div class="form-field col-6">
+      <%= f.label :nombre %><br />
+      <%= f.text_field :nombre, class:"input-block" %>
+    </div>
+    <div class="form-field col-6">
+      <%= f.label :apellido %><br />
+      <%= f.text_field :apellido, class:"input-block"  %>
+    </div>
+    <div class="form-field col-12">
+      <%= f.label :telefono %><br />
+      <%= f.text_field :telefono, class:"input-block"  %>
+    </div>
+    <div class="form-field col-6">
+      <%= f.label :tipo_sangre %><br />
+      <%= f.select(:tipo_sangre,options_for_select([['A-','A-'],['A+', 'A+'], ['B-', 'B-'],['B+','B+'],['AB+','AB+'],['AB-','AB-'],['O+','O+'],['O-','O-']])) %>
+    </div>
+    <div class="form-field col-6">
+      <%= f.label :sexo %><br />
+      <%= f.select(:sexo, options_for_select([['Masculino', 'M'], ['Femenino', 'F']])) %>
+    </div>
+    <div class="form-field col-6">
+      <%= f.label :religion %><br />
+      <%= f.text_field :religion, class:"input-block"  %>
+    </div>
+    <div class="form-field col-6">
+      <%= f.label :edo_civil %><br />
+      <%= f.text_field :edo_civil, class:"input-block"  %>
+    </div>
+    <div class="form-field">
+      <%= f.label :fechaNacimiento %><br />
+      <%= f.text_field :fechaNacimiento, class:"input-block" %>
+      <% #, "data-datepicker" => true, "data-format-submit" => "yyyy-mm-dd", "data-select-years" => true, "data-select-months" => true %>
+    </div>
+    <div class="form-field">
+      <%= f.label :direccion %><br />
+      <%= f.text_field :direccion, class:"input-block"  %>
+    </div>
+    <div class="form-field">
+      <%= f.label :email %><br />
+      <%= f.text_field :email, class:"input-block"  %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Submit" %>
+    </div>
+  <% end %>
+</div>
+    <div class="go-back">
+      <%=link_to "Go Back", pacientes_path %>
+    </div>
+  </div>
+</div>
+

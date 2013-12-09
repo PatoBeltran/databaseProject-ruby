@@ -1,0 +1,14 @@
+<% @pacientes.each do |patient| %>
+  <div class="patient-section">
+    <p>
+    <%= link_to patient do %>
+      <%= patient.apellido %>, <%= patient.nombre %> 
+    <% end %>
+    </p>
+    <p>
+    <% if is_doctor %>
+      <%= link_to "Edit", edit_paciente_path(patient) %>
+    <% end %>
+    </p>
+  </div>
+<% end %>

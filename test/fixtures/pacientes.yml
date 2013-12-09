@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: pacientes
+#
+#  pid             :integer          default(0), not null, primary key
+#  nombre          :string(150)      not null
+#  apellido        :string(150)      not null
+#  telefono        :string(10)       not null
+#  tipo_sangre     :string(3)        not null
+#  sexo            :string(1)        not null
+#  religion        :string(100)      not null
+#  edo_civil       :string(15)       not null
+#  fechaNacimiento :date             not null
+#  direccion       :string(255)      not null
+#  email           :string(255)      not null
+#  doc_id          :integer          not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: {}
+# column: value
+#
+two: {}
+#  column: value
