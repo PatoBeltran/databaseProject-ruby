@@ -1,0 +1,48 @@
+<div class="login-container">
+  <div class="supp-lightbox">
+    <div class="wrapper">
+      <% flash.each do |name, msg| %>
+          <div class="row">
+            <div class="col-12">
+              <div class= "alert">
+                <button type="button" class="close">x</button>
+                <%= msg %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <div class="row">
+        <div class="col-12">
+          <h2>
+            Preescripcion de medicamento
+          </h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <%= form_for @articuloprescrito, url: cita_articulosprescritos_path,   class: "no-margin" do |f| %>
+            <div class="form-field col-9">
+            <%= f.label :nombre, "Nombre" %><br />
+            <%= f.text_field :nombre, class:"input-block" %>
+          </div>
+          <div class="form-field col-3">
+            <%= f.label :cantidad, "Cantidad (numero de paquetes o medicinas)" %><br />
+            <%= f.text_field :cantidad, class:"input-block"  %>
+          </div>
+          <div class="form-field col-12">
+            <%= f.label :frecuencia, "Frecuencia" %><br />
+            <%= f.text_field :frecuencia, class:"input-block"  %>
+          </div>
+          <div class="actions">
+            <%= f.submit "Enviar" %>
+          </div>
+        <% end %>
+          <div class="go-back">
+            <%=link_to "Atras", root_path %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
