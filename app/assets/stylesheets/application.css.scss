@@ -83,9 +83,9 @@
 }
 .login-container .supp-lightbox {
   background: #fff;
-  width: 600px;
-  margin: 100px auto;
-  padding: 40px;
+  width: 60%;
+  margin: 6% auto;
+  padding: 4%;
   border-radius: 5px;
   text-align: center;
 }
@@ -99,6 +99,20 @@
 .go-back a {
   color: #999;
 }
+.pepito {
+  background-color:#F0F0F0;  
+  border-radius: 7px;
+}
+
+.pepito2 {
+  background-color:#E8E8E8;
+  margin-bottom: 1em;
+}
+
+.pepito3 {
+  background-color:#E0E0E0;  
+}
+
 
 @media only screen and (max-width: 650px)  {
   .right-txt {

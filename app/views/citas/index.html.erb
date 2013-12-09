@@ -1,18 +1,23 @@
-<% @citas.each do |cita| %>
-  <div class="cita-section">
-    <p>
-    <%=link_to cita_path(Cita.find_by_sql("SELECT * FROM citas WHERE cid = '#{cita.cid}'")[0]) do %>
-      <%= cita.fecha %>
-    <% end %>
-    </p>
-    <p>
-      <%= cita.apellido %>, <%= cita.nombre %>
-    </p>
-    <p>
-      <%= cita.comentario %>
-    </p>
-    <p>
-      <%= cita.telefono %>
-    </p>
-  </div>
-<% end %>
+<div class="row">
+  <% @citas.each do |cita| %>
+    <div class="col-3 text-center pepito">
+      <p>
+        <%=link_to cita_path(Cita.find_by_sql("SELECT * FROM citas WHERE cid = '#{cita.cid}'")[0]) do %>
+          <%= cita.fecha %>
+        <% end %>
+      </p>
+      <div class="row">
+        <div class="col-6 text-center pepito">
+          <%= cita.nombre %> <%= cita.apellido %>
+        </div>
+        <div class="col-6 text-center pepito">
+          <%= cita.telefono %>
+        </div>
+        <div class="col-12 text-center pepito">
+          <%= cita.comentario %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+

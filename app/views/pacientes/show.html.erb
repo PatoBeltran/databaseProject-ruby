@@ -1,15 +1,61 @@
-<div class="patient-section">
-  <p>
-    <%= @paciente.apellido %>, <%= @paciente.nombre %> 
-  </p>
-  <p>
-    <%= %>
-  </p>
-  <p>
-  <% if is_doctor %>
-    <%= link_to "Editar", edit_paciente_path(@paciente) %><br />
-    <%= link_to "Agregar padecimiento", new_paciente_historialmedico_path(@paciente) %><br />
-    <%= link_to "Agregar vacuna", new_paciente_vacuna_path(@paciente) %>
-  <% end %>
-  </p>
+<div class="row">
+  <div class="col-12 text-center pepito3">
+    <% if is_doctor %>
+      <p class="col-12"><%= link_to "Editar", edit_paciente_path(@paciente) %></p>
+      <p class="col-12"><%= link_to "Agregar padecimiento", new_paciente_historialmedico_path(@paciente) %><p>
+      <p class="col-12"><%= link_to "Agregar vacuna", new_paciente_vacuna_path(@paciente) %></p>
+    <% end %>
+    <div class="row">
+      <div class="col-2 text-center pepito2">
+        <%= @paciente.nombre %> <%= @paciente.apellido %>
+      </div>
+      <div class="col-2 text-center pepito2">
+        <%= @paciente.fechaNacimiento %> 
+      </div>
+      <div class="col-2 text-center pepito2">
+        <%= @paciente.direccion %> 
+      </div>
+      <div class="col-2 text-center pepito2">
+        Telefono:  <%= @paciente.telefono %>
+    </div>
+    <div class="col-2 text-center pepito2">
+        Tipo de sangre:  <%= @paciente.tipo_sangre %> 
+    </div>
+    <div class="col-2 text-center pepito2">
+        Religion:  <%= @paciente.religion %>
+    </div>
+    <div class="row">
+      <div class="col-3 text-center pepito">
+        Vacunas puestas:
+        <div class="row">
+          <div class="col-12">
+            <ul>
+              Esto se llena dependiendo de las vacunas que tiene puestas
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-3 text-center pepito">
+        Vacunas faltantes:
+        <div class="row">
+          <div class="col-12">
+            <ul>
+              Esto se llena dependiendo de las vacunas que tiene puestas
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 text-center pepito">
+        Padecimientos:
+        <div class="row">
+          <div class="col-12">
+            <ul>
+              Esto se llena dependiendo de las vacunas que tiene puestas
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
