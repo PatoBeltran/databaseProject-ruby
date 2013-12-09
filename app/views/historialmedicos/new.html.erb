@@ -1,0 +1,41 @@
+<div class="login-container">
+  <div class="supp-lightbox">
+    <div class="wrapper">
+      <div class="row">
+        <div class="col-12">
+          <h2>
+            Ingresa la informacion del padecimiento.
+          </h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <%= form_for @historialmedico, :url => paciente_historialmedicos_path do |f| %>
+            <div class="form-field">
+              <%= f.label :fecha %><br />
+              <%= f.text_field :fecha, class:"input-block" %>
+            </div>
+            <%= f.fields_for :padecimiento do |builder| %>
+              <div class="form-field">
+                <%= builder.label :nombre %><br />
+                <%= builder.text_field :nombre, class:"input-block"  %>
+              </div>
+              <div class="form-field">
+                <%= builder.label :descripcion %><br />
+                <%= builder.text_field :descripcion, class:"input-block"  %>
+              </div>
+            <% end %>
+
+            <div class="actions">
+              <%= f.submit "Guardar" %>
+            </div>
+        <% end %>
+          <div class="go-back">
+            <%=link_to "Atras", root_path %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
