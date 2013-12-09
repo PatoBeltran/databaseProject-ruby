@@ -22,7 +22,7 @@
         <div class="col-12">
           <%= form_for @historialmedico, :url => paciente_historialmedicos_path do |f| %>
             <div class="form-field">
-              <%= f.label :fecha %><br />
+              <%= f.label :fecha, "Fecha (AAAA-MM-DD)" %><br />
               <%= f.text_field :fecha, class:"input-block" %>
             </div>
             <%= f.fields_for :padecimiento do |builder| %>
