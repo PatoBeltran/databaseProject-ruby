@@ -1,0 +1,33 @@
+<div class="login-container">
+  <div class="supp-lightbox">
+    <div class="wrapper">
+      <div class="row">
+        <div class="col-12">
+          <h2>
+            Agregar vacuna
+          </h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="row">
+            <%= form_for @vacuna, url: paciente_vacunas_path , class: "no-margin" do |f| %>
+            <div class="form-field col-12">
+              <%= f.label :vid, "Vacunas" %><br />
+              <% if @all_vacunas.present? %>
+                <%= f.select :vid, options_for_select(@all_vacunas)%>
+              <% end %>
+            </div>
+            <div class="actions">
+              <%= f.submit "Enviar" %>
+            </div>
+          <% end %>
+          </div>
+          <div class="go-back">
+            <%=link_to "Atras", pacientes_path %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

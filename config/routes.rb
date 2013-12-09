@@ -11,6 +11,7 @@ BDPed::Application.routes.draw do
   resources :assistants
   resources :pacientes do
     resources :historialmedicos
+    resources :vacunas
   end
   resources :citas
 
