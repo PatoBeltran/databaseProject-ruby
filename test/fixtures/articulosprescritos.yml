@@ -1,11 +1,12 @@
 # == Schema Information
 #
-# Table name: vacunas
+# Table name: ArticulosPrescritos
 #
-#  vid         :integer          default(0), not null, primary key
-#  nombre      :string(255)      not null
-#  edadAplic   :integer          not null
-#  description :string(255)      not null
+#  aid        :integer          default(0), not null, primary key
+#  cid        :integer
+#  nombre     :string(255)      not null
+#  cantidad   :integer          not null
+#  frecuencia :string(100)      not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

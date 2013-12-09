@@ -1,0 +1,2 @@
+class ArticulosprescritosController < ApplicationController
+end
