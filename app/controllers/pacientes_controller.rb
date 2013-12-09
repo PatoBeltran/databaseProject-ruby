@@ -21,6 +21,8 @@ class PacientesController < ApplicationController
 
       ActiveRecord::Base.connection.execute raw_sql
 
+      @paciente.assign_attributes(pid: id)
+
       redirect_to paciente_url(@paciente), notice: "¡Tu paciente ha sido agregado!"
     rescue
       render :new
@@ -50,7 +52,7 @@ class PacientesController < ApplicationController
   def show
     @paciente = Paciente.find_by_sql("SELECT * FROM pacientes WHERE pid = '#{params[:id]}';")[0]
     @padecimientos = Padecimiento.find_by_sql("SELECT pad.nombre, pad.descripcion FROM Padecimientos pad, Historialmedico hm WHERE pid='#{params[:id]}' AND pad.hid=hm.hid")
-    @tusvacunas = Vacuna.find_by_sql("SELECT v.nombre, v.vid FROM Pacientes p, Vacunas v, VacunasDePacientes vp WHERE vp.pid='#{params[:id]}' AND v.vid=vp.vid")
+    @tusvacunas = Vacuna.find_by_sql("SELECT DISTINCT v.nombre, v.vid FROM Pacientes p, Vacunas v, VacunasDePacientes vp WHERE vp.pid='#{params[:id]}' AND v.vid=vp.vid")
     @otrasvacunas = Vacuna.find_by_sql("SELECT nombre, vid FROM Vacunas WHERE vid NOT IN ( SELECT v.vid FROM Pacientes p, Vacunas v, VacunasDePacientes vp WHERE vp.pid='#{params[:id]}' AND v.vid=vp.vid)")
   end
 

@@ -61,8 +61,9 @@
 .nav-box {
   background-color: rgba(255,255,255,0.3);
   border-radius: .2em;
-  height: 1.8em;
-  width: 12.5em;
+  height: 220%;
+  width: 35%;
+  font-size: 55%;
   margin: 0 auto;
   padding-top: .6em;
 }
@@ -117,6 +118,9 @@
 @media only screen and (max-width: 650px)  {
   .right-txt {
     font-size: 30px;
+  }
+  .nav-box{
+    width: 55%;
   }
 }
 @media only screen and (max-width: 450px)  {

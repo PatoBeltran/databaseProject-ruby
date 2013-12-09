@@ -22,7 +22,7 @@ class HistorialmedicosController < ApplicationController
       pid = pid[0].to_i
 
       raw_sql = "INSERT INTO historialmedico (hid, pid, fecha)
-                 VALUES ('#{id}', '#{pid}', '#{@historialmedico.fecha}');"
+                 VALUES ('#{id}', '#{params[:paciente_id]}', '#{@historialmedico.fecha}');"
 
       ActiveRecord::Base.connection.execute raw_sql
 
