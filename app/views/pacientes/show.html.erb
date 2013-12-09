@@ -1,18 +1,18 @@
 <div class="row">
-  <div class="col-12 text-center pepito3">
+  <div class="col-12 text-center pepito">
     <% if is_doctor %>
       <p class="col-12"><%= link_to "Editar", edit_paciente_path(@paciente) %></p>
       <p class="col-12"><%= link_to "Agregar padecimiento", new_paciente_historialmedico_path(@paciente) %><p>
       <p class="col-12"><%= link_to "Agregar vacuna", new_paciente_vacuna_path(@paciente) %></p>
     <% end %>
     <div class="row">
-      <div class="col-2 text-center pepito2">
-        <%= @paciente.nombre %> <%= @paciente.apellido %>
+      <div class="col-12 text-center">
+        <h2><%= @paciente.nombre %> <%= @paciente.apellido %></h2>
       </div>
       <div class="col-2 text-center pepito2">
         <%= @paciente.fechaNacimiento %> 
       </div>
-      <div class="col-2 text-center pepito2">
+      <div class="col-4 text-center pepito2">
         <%= @paciente.direccion %> 
       </div>
       <div class="col-2 text-center pepito2">
@@ -26,31 +26,47 @@
     </div>
     <div class="row">
       <div class="col-3 text-center pepito">
-        Vacunas puestas:
+        <h3>Vacunas puestas:</h3>
         <div class="row">
           <div class="col-12">
-            <ul>
-              Esto se llena dependiendo de las vacunas que tiene puestas
+            <ul class="unstyled">
+              <% @tusvacunas.each do |pad| %>
+                <li>
+                  <p><%= pad.nombre %></p>
+                </li>
+                <hr />
+              <% end %>
             </ul>
           </div>
         </div>
       </div>
       <div class="col-3 text-center pepito">
-        Vacunas faltantes:
+        <h3>Vacunas faltantes:</h3>
         <div class="row">
           <div class="col-12">
-            <ul>
-              Esto se llena dependiendo de las vacunas que tiene puestas
+            <ul class="unstyled">
+              <% @otrasvacunas.each do |pad| %>
+                <li>
+                  <p><%= pad.nombre %></p>
+                </li>
+                <hr />
+              <% end %>
             </ul>
           </div>
         </div>
       </div>
       <div class="col-6 text-center pepito">
-        Padecimientos:
+        <h3>Padecimientos:</h3>
         <div class="row">
           <div class="col-12">
-            <ul>
-              Esto se llena dependiendo de las vacunas que tiene puestas
+            <ul class="unstyled">
+              <% @padecimientos.each do |pad| %>
+                <li>
+                  <h4><%= pad.nombre %></h4>
+                  <p><%= pad.descripcion %></p>
+                </li>
+                <hr />
+              <% end %>
             </ul>
           </div>
         </div>

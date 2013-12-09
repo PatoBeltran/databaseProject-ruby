@@ -1,19 +1,36 @@
-<div class="patient-section">
-  <p>
-    <%= @todo.apellido %>, <%= @todo.nombre %> 
-  </p>
-  <p>
-    Peso Actual: <%= @cita.peso_actual %>
-  </p>
-  <p>
-    Altura Actual: <%= @cita.altura_actual %>
-  </p>
-  <p>
-    Edad Actual: <%= @cita.edad_actual %>
-  </p>
-  <p>
-  <% if is_doctor %>
-    <%= link_to "Edit", edit_cita_path(@cita) %>
-  <% end %>
-  </p>
+<div class="row">
+  <div class="col-12 text-center pepito3">
+    <h2>Detalles de la cita</h2>
+    <div class="row">
+      <% if is_doctor %>
+        <p class="col-12">
+        <%= link_to "Editar", edit_cita_path(@cita) %>
+        </p>
+      <% end %>
+      <div class="col-3 text-center pepito2">
+          <%= @todo.nombre %> <%= @todo.apellido %>
+      </div>
+      <div class="col-3 text-center pepito2">
+        Fecha: <%= @cita.fecha %>
+      </div>
+      <div class="col-2 text-center pepito2">
+        Edad: <%= @cita.edad_actual %>
+      </div>
+      <div class="col-2 text-center pepito2">
+        Peso: <%= @cita.peso_actual %>
+      </div>
+      <div class="col-2 text-center pepito2">
+        Altura: <%= @cita.altura_actual %>
+      </div>
+      <div class="col-12 text-center pepito2">
+        <h4>Comentarios</h4>
+        <p> <%= @cita.comentario %> </p>
+      </div>
+      <div class="row">
+        <div class="col-12 text-center pepito">
+          <h4>Prescripciones:</h4>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

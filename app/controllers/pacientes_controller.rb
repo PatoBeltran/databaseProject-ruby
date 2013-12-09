@@ -49,7 +49,9 @@ class PacientesController < ApplicationController
 
   def show
     @paciente = Paciente.find_by_sql("SELECT * FROM pacientes WHERE pid = '#{params[:id]}';")[0]
-    #@padecimientos = 
+    @padecimientos = Padecimiento.find_by_sql("SELECT pad.nombre, pad.descripcion FROM Padecimientos pad, Historialmedico hm WHERE pid='#{params[:id]}' AND pad.hid=hm.hid")
+    @tusvacunas = Vacuna.find_by_sql("SELECT v.nombre, v.vid FROM Pacientes p, Vacunas v, VacunasDePacientes vp WHERE vp.pid='#{params[:id]}' AND v.vid=vp.vid")
+    @otrasvacunas = Vacuna.find_by_sql("SELECT nombre, vid FROM Vacunas WHERE vid NOT IN ( SELECT v.vid FROM Pacientes p, Vacunas v, VacunasDePacientes vp WHERE vp.pid='#{params[:id]}' AND v.vid=vp.vid)")
   end
 
   def index
