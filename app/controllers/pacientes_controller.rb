@@ -57,10 +57,10 @@ class PacientesController < ApplicationController
   end
 
   def index
-    p = ""
+    p = "%"
     if params[:search]
       parametros = params[:search].split(" ")
-      p = parametros.join("%")
+      p = "%" + parametros.join("%")
     end
     p += "%"
     if is_doctor
