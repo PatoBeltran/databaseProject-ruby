@@ -1,8 +1,4 @@
-#insert de usuarios
-
-INSERT INTO users VALUES (0, 'Julio Galan', 'julio@marco.mx', 'password');
-INSERT INTO users VALUES (1, 'Gabriel Garcia Marquez', 'ggm@macondo.com', 'password');
-
+#no hay inserts de usuarios, se hace manualmente por separado
 
 #insert de assistants
 
@@ -54,24 +50,24 @@ INSERT INTO Pacientes VALUES (5, 'Carlos',
 
 #insert de citas
 
-INSERT INTO Citas VALUES (0, 0, 20141115, 'Estaba llorando el bebe.',
+INSERT INTO Citas VALUES (0, 0, 20131115, 'Estaba llorando el bebe.',
 	12, 2.3, 50, 0);
-INSERT INTO Citas VALUES (1, 0, 20141116, 'El bebe seguia llorando.',
+INSERT INTO Citas VALUES (1, 0, 20131116, 'El bebe seguia llorando.',
 	12, 2.3, 50, 0);
-INSERT INTO Citas VALUES (2, 1, 20141128, 'Tenia mucho moco.',
+INSERT INTO Citas VALUES (2, 1, 20131128, 'Tenia mucho moco.',
 	6, 3.6, 60, 1);
-INSERT INTO Citas VALUES (3, 2, 20141201, 'Visita rutinaria.',
+INSERT INTO Citas VALUES (3, 2, 20131201, 'Visita rutinaria.',
 	7, 2.8, 70, 1);
 
-INSERT INTO Citas VALUES (4, 3, 20141202, 'Tenia fiebre.',
+INSERT INTO Citas VALUES (4, 3, 20131202, 'Tenia fiebre.',
 	24, 5.3, 80, 1);
-INSERT INTO Citas VALUES (5, 4, 20141205, 'Le tocan vacunas al bebe.',
+INSERT INTO Citas VALUES (5, 4, 20131205, 'Le tocan vacunas al bebe.',
 	2, 2.8, 70, 1);
-INSERT INTO Citas VALUES (6, 5, 20141218, 'Tiene un lunar que quieren revisar.',
+INSERT INTO Citas VALUES (6, 5, 20131218, 'Tiene un lunar que quieren revisar.',
 	48, 2.8, 70, 1);
-INSERT INTO Citas VALUES (7, 2, 20141222, 'Lleva un dia devolviendo todo lo que come.',
+INSERT INTO Citas VALUES (7, 2, 20131222, 'Lleva un dia devolviendo todo lo que come.',
 	7, 2.8, 70, 1);
-INSERT INTO Citas VALUES (8, 1, 20141230, 'Se corto el dedo con una lata.',
+INSERT INTO Citas VALUES (8, 1, 20131230, 'Se corto el dedo con una lata.',
 	6, 2.8, 70, 1);
 
 
@@ -127,12 +123,6 @@ INSERT INTO Vacunas VALUES ( 17, 'SRP (2 de 2)', 72, 'Previene Sarampión, Rubé
 INSERT INTO Vacunas VALUES ( 18, 'DPT', 48 , 'Previene Diftera, Tosferina y Tetanos.');
 
 #insert de vacunas de pacientes
-INSERT INTO VacunasDePacientes VALUES (0,0);
-INSERT INTO VacunasDePacientes VALUES (0,1);
-INSERT INTO VacunasDePacientes VALUES (0,2);
-INSERT INTO VacunasDePacientes VALUES (0,4);
-INSERT INTO VacunasDePacientes VALUES (0,8);
-INSERT INTO VacunasDePacientes VALUES (0,11);
 
 INSERT INTO VacunasDePacientes VALUES (1,0);
 INSERT INTO VacunasDePacientes VALUES (1,1);

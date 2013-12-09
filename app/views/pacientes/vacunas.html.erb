@@ -1,0 +1,25 @@
+<div class="row">
+  <% if @pacientes.present? %>
+    <% @pacientes.each do |patient| %>
+      <div class="patient-section">
+        <div class="col-5 text-center pepito">
+          <div class="row">
+            <div class="col-6 text-center pepito">
+               <%= patient.nombre %> <%= patient.apellido %>
+            </div>
+            <div class="col-6 text-center pepito">
+              <%= patient.fechaNacimiento %>
+            </div>
+          </div>
+          <p><%= link_to "Ver perfil del paciente", paciente_path(patient) %></p>
+        </div>
+        <div class="col-1">
+        </div>
+      </div>
+      <% end %>
+    <% else %>
+      <div class="col-12">
+        <h2 class="col-12"> No se ha encontrado ningun paciente. </h2>
+      </div>
+    <% end %>
+</div>

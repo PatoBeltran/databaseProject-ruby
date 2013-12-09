@@ -72,6 +72,15 @@ class PacientesController < ApplicationController
       @pacientes = Paciente.find_by_sql("SELECT pid, nombre, apellido,  telefono, tipo_sangre, sexo, religion, edo_civil, fechaNacimiento, direccion, email FROM Pacientes WHERE CONCAT(nombre, ' ', apellido) like '#{p}' AND doc_id = '#{current_user.doc_id}';")
     end
   end
+  def vacunas
+    if is_doctor
+      current_user.u_id
+      @pacientes = Paciente.find_by_sql("SELECT pid, nombre, apellido,  telefono, tipo_sangre, sexo, religion, edo_civil, fechaNacimiento, direccion, email FROM Pacientes WHERE CONCAT(nombre, ' ', apellido) like '#{p}' AND doc_id = '#{current_user.u_id}';")
+    else
+      current_user.aid
+      @pacientes = Paciente.find_by_sql("SELECT pid, nombre, apellido,  telefono, tipo_sangre, sexo, religion, edo_civil, fechaNacimiento, direccion, email FROM Pacientes WHERE CONCAT(nombre, ' ', apellido) like '#{p}' AND doc_id = '#{current_user.u_id}';")
+    end
+  end
 
   private
   def paciente_params
