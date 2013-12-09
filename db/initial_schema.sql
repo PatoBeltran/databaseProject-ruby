@@ -28,7 +28,7 @@ CREATE TABLE Pacientes(
   religion varchar(100) not null,
   edo_civil varchar(15) not null
     CHECK(edo_civil in ('soltero','casado')),
-  fechaNacimiento datetime not null,
+  fechaNacimiento date not null,
   direccion varchar(255) not null,
   email varchar(255) not null,
   doc_id int not null,
@@ -39,7 +39,7 @@ CREATE TABLE Pacientes(
 CREATE TABLE Citas(
   cid int,
   pid int,
-  fecha datetime not null,
+  fecha date not null,
   comentario varchar(140) not null
     DEFAULT 'sin atender',
   edad_actual int not null,
@@ -54,7 +54,7 @@ CREATE TABLE Citas(
 CREATE TABLE HistorialMedico(
   hid int,
   pid int,
-  fecha datetime not null,
+  fecha date not null,
   PRIMARY KEY(hid),
   FOREIGN KEY(pid) REFERENCES Pacientes(pid)
 );
@@ -82,6 +82,7 @@ CREATE TABLE ArticulosPrescritos(
 CREATE TABLE Vacunas(
   vid int,
   nombre varchar(255) not null,
+  edadAplic int not null,
   description varchar(255) not null,
   PRIMARY KEY(vid)
 );

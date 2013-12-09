@@ -44,7 +44,7 @@ DROP TABLE IF EXISTS `Citas`;
 CREATE TABLE `Citas` (
   `cid` int(11) NOT NULL DEFAULT '0',
   `pid` int(11) DEFAULT NULL,
-  `fecha` datetime NOT NULL,
+  `fecha` date NOT NULL,
   `comentario` varchar(140) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'sin atender',
   `edad_actual` int(11) NOT NULL,
   `peso_actual` decimal(10,0) NOT NULL,
@@ -68,7 +68,7 @@ DROP TABLE IF EXISTS `HistorialMedico`;
 CREATE TABLE `HistorialMedico` (
   `hid` int(11) NOT NULL DEFAULT '0',
   `pid` int(11) DEFAULT NULL,
-  `fecha` datetime NOT NULL,
+  `fecha` date NOT NULL,
   PRIMARY KEY (`hid`),
   KEY `pid` (`pid`),
   CONSTRAINT `historialmedico_ibfk_1` FOREIGN KEY (`pid`) REFERENCES `Pacientes` (`pid`)
@@ -91,7 +91,7 @@ CREATE TABLE `Pacientes` (
   `sexo` char(1) COLLATE utf8_unicode_ci NOT NULL,
   `religion` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `edo_civil` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
-  `fechaNacimiento` datetime NOT NULL,
+  `fechaNacimiento` date NOT NULL,
   `direccion` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `doc_id` int(11) NOT NULL,
@@ -129,6 +129,7 @@ DROP TABLE IF EXISTS `Vacunas`;
 CREATE TABLE `Vacunas` (
   `vid` int(11) NOT NULL DEFAULT '0',
   `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `edadAplic` int(11) NOT NULL,
   `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`vid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -208,5 +209,5 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-12-07 20:40:52
+-- Dump completed on 2013-12-08 20:06:59
 INSERT INTO schema_migrations (version) VALUES ('20131208003144');
