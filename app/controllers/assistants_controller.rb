@@ -19,6 +19,7 @@ class AssistantsController < ApplicationController
 
       redirect_to pacientes_url, notice: "Your assistant has been signed up!"
     rescue
+      flash[:notice] = "Algo en la forma esta incorrecto, favor de verificar el formato"
       render :new
     end
   end

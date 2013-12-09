@@ -34,6 +34,7 @@ class HistorialmedicosController < ApplicationController
 
       redirect_to paciente_url(@paciente), notice: "¡Se ha agregado un padecimiento!"
     rescue
+      flash[:notice] = "Algo en la forma esta incorrecto, favor de verificar el formato"
       render :new
     end
   end

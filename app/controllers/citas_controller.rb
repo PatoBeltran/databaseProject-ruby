@@ -43,6 +43,7 @@ class CitasController < ApplicationController
 
       redirect_to citas_url, notice: "¡Tu cita ha sido creada!"
     rescue
+      flash[:notice] = "Algo en la forma esta incorrecto, favor de verificar el formato"
       render :new
     end
   end
@@ -60,6 +61,7 @@ class CitasController < ApplicationController
 
       redirect_to cita_url(@cita), notice: "¡Tu cita ha sido modificada!"
     rescue
+      flash[:notice] = "Algo en la forma esta incorrecto, favor de verificar el formato"
       render :edit
     end
   end
@@ -75,6 +77,7 @@ class CitasController < ApplicationController
   def show
     @cita = Cita.find_by_sql("SELECT * FROM citas WHERE cid = '#{params[:id]}'")[0]
     @todo = Cita.find_by_sql("SELECT nombre, apellido, fecha, comentario, telefono FROM Citas c, Pacientes p WHERE c.pid=p.pid AND cid = '#{params[:id]}'")[0]
+    @articulos = Articulosprescrito.find_by_sql("Select nombre, cantidad, frecuencia FROM articulosprescritos WHERE cid='#{params[:id]}'")
   end
 
   private

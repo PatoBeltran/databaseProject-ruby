@@ -30,6 +30,7 @@ class VacunasController < ApplicationController
 
       redirect_to paciente_path(@paciente), notice: "¡Tu vacuna ha sido agregada!"
     rescue
+      flash[:notice] = "Algo en la forma esta incorrecto, favor de verificar el formato"
       render :new
     end
   end

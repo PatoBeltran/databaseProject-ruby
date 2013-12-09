@@ -24,6 +24,18 @@
     <div class="col-2 text-center pepito2">
         Religion:  <%= @paciente.religion %>
     </div>
+    <div class="col-12">
+      <h4> Citas pasadas </h4>
+      <ul class="unstyled">
+        <% @citaspasadas.each do |pad| %>
+          <li>
+            <p class="col-4"><%=link_to pad.fecha, cita_path(pad)  %></p>
+            <p class="col-8"><%= pad.comentario %></p>
+          </li>
+          <hr />
+        <% end %>
+      </ul>
+    </div>
     <div class="row">
       <div class="col-3 text-center pepito">
         <h3>Vacunas puestas:</h3>

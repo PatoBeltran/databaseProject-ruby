@@ -25,6 +25,7 @@ class PacientesController < ApplicationController
 
       redirect_to paciente_url(@paciente), notice: "¡Tu paciente ha sido agregado!"
     rescue
+      flash[:notice] = "Algo en la forma esta incorrecto, favor de verificar el formato"
       render :new
     end
 
@@ -45,6 +46,7 @@ class PacientesController < ApplicationController
 
       redirect_to paciente_url(@paciente), notice: "¡Tu paciente ha sido modificado!"
     rescue
+      flash[:notice] = "Algo en la forma esta incorrecto, favor de verificar el formato"
       render :edit
     end
   end
@@ -54,6 +56,7 @@ class PacientesController < ApplicationController
     @padecimientos = Padecimiento.find_by_sql("SELECT pad.nombre, pad.descripcion FROM Padecimientos pad, Historialmedico hm WHERE pid='#{params[:id]}' AND pad.hid=hm.hid")
     @tusvacunas = Vacuna.find_by_sql("SELECT DISTINCT v.nombre, v.vid FROM Pacientes p, Vacunas v, VacunasDePacientes vp WHERE vp.pid='#{params[:id]}' AND v.vid=vp.vid")
     @otrasvacunas = Vacuna.find_by_sql("SELECT nombre, vid FROM Vacunas WHERE vid NOT IN ( SELECT v.vid FROM Pacientes p, Vacunas v, VacunasDePacientes vp WHERE vp.pid='#{params[:id]}' AND v.vid=vp.vid)")
+    @citaspasadas = Cita.find_by_sql("SELECT cid, fecha, comentario FROM Citas WHERE Citas.pid='#{params[:id]}' AND fecha < CURDATE()")
   end
 
   def index

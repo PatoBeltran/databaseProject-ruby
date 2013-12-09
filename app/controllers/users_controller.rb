@@ -16,6 +16,7 @@ class UsersController < ApplicationController
       session[:user_id] = id
       redirect_to root_url, notice: "¡Gracias por registrarte!"
     rescue 
+      flash[:notice] = "Algo en la forma esta incorrecto, favor de verificar el formato"
       render :new
     end
   end

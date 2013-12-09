@@ -2,6 +2,16 @@
   <div class="supp-lightbox">
     <div class="wrapper">
       <div class="row">
+        <% flash.each do |name, msg| %>
+          <div class="row">
+            <div class="col-12">
+              <div class= "alert">
+                <button type="button" class="close">x</button>
+                <%= msg %>
+              </div>
+            </div>
+          </div>
+        <% end %>
         <div class="col-12">
           <h2>
             Modifica a tu paciente.

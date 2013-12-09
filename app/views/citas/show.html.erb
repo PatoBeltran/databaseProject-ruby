@@ -4,7 +4,10 @@
     <div class="row">
       <% if is_doctor %>
         <p class="col-12">
-        <%= link_to "Editar", edit_cita_path(@cita) %>
+          <%= link_to "Editar", edit_cita_path(@cita) %>
+        </p>
+        <p class="col-12">
+        <%= link_to "Agregar articulo prescrito", new_cita_articulosprescrito_path(@cita) %>
         </p>
       <% end %>
       <div class="col-3 text-center pepito2">
@@ -29,6 +32,18 @@
       <div class="row">
         <div class="col-12 text-center pepito">
           <h4>Prescripciones:</h4>
+          <div class="col-12">
+            <ul class="unstyled">
+              <% @articulos.each do |pad| %>
+                <li>
+                <p class="col-4"><b><%= pad.nombre %></b></p>
+                <p class="col-3"><b>Cantidad:</b> <%= pad.cantidad %></p>
+                <p class="col-5"><b>Frecuencia:</b> <%= pad.frecuencia %></p>
+                </li>
+                <hr />
+              <% end %>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

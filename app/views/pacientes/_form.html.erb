@@ -31,7 +31,7 @@
       <%= f.select(:edo_civil, options_for_select([['Casado', 'Casado'], ['Soltero', 'Soltero']])) %>
     </div>
     <div class="form-field col-12">
-      <%= f.label :fechaNacimiento, "Fecha de Nacimiento" %><br />
+      <%= f.label :fechaNacimiento, "Fecha de Nacimiento (AAAA-MM-DD)" %><br />
       <%= f.text_field :fechaNacimiento, class:"input-block" %>
       <% #, "data-datepicker" => true, "data-format-submit" => "yyyy-mm-dd", "data-select-years" => true, "data-select-months" => true %>
     </div>
