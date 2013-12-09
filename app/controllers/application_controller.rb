@@ -7,9 +7,9 @@ class ApplicationController < ActionController::Base
 
   def current_user
     if session[:type] == 1
-      @current_user ||= User.find_by_sql("SELECT * FROM users WHERE u_id = #{session[:user_id]}")[0] if session[:user_id]
+      @current_user ||= User.find_by_sql("SELECT * FROM users WHERE u_id = #{session[:user_id]};")[0] if session[:user_id]
     else
-      @current_user ||= Assistant.find_by_sql("SELECT * FROM assistants WHERE aid = #{session[:user_id]}")[0] if session[:user_id]
+      @current_user ||= Assistant.find_by_sql("SELECT * FROM assistants WHERE aid = #{session[:user_id]};")[0] if session[:user_id]
     end
   end
 
@@ -24,6 +24,6 @@ class ApplicationController < ActionController::Base
   end
 
   def just_doctor
-    redirect_to root_url, alert: "Not authorized, you have to be a doctor" unless is_doctor
+    redirect_to pacientes_url, alert: "Not authorized, you have to be a doctor" unless is_doctor
   end
 end
