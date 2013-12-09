@@ -87,10 +87,10 @@ CREATE TABLE Vacunas(
   PRIMARY KEY(vid)
 );
 
-CREATE TABLE VacunasDeHistorial(
-  histId int,
+CREATE TABLE VacunasDePacientes(
+  pid int,
   vid int,
-  PRIMARY KEY(histId, vid),
-  FOREIGN KEY(histId) REFERENCES HistorialMedico(hId),
+  PRIMARY KEY(pid, vid),
+  FOREIGN KEY(pid) REFERENCES Pacientes(pid),
   FOREIGN KEY(vid) REFERENCES Vacunas(vid)
 );

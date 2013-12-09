@@ -136,19 +136,19 @@ CREATE TABLE `Vacunas` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `VacunasDeHistorial`
+-- Table structure for table `VacunasDePacientes`
 --
 
-DROP TABLE IF EXISTS `VacunasDeHistorial`;
+DROP TABLE IF EXISTS `VacunasDePacientes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `VacunasDeHistorial` (
-  `histId` int(11) NOT NULL DEFAULT '0',
+CREATE TABLE `VacunasDePacientes` (
+  `pid` int(11) NOT NULL DEFAULT '0',
   `vid` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`histId`,`vid`),
+  PRIMARY KEY (`pid`,`vid`),
   KEY `vid` (`vid`),
-  CONSTRAINT `vacunasdehistorial_ibfk_1` FOREIGN KEY (`histId`) REFERENCES `HistorialMedico` (`hid`),
-  CONSTRAINT `vacunasdehistorial_ibfk_2` FOREIGN KEY (`vid`) REFERENCES `Vacunas` (`vid`)
+  CONSTRAINT `vacunasdepacientes_ibfk_1` FOREIGN KEY (`pid`) REFERENCES `Pacientes` (`pid`),
+  CONSTRAINT `vacunasdepacientes_ibfk_2` FOREIGN KEY (`vid`) REFERENCES `Vacunas` (`vid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -209,5 +209,5 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-12-08 22:00:15
+-- Dump completed on 2013-12-09  2:58:30
 INSERT INTO schema_migrations (version) VALUES ('20131208003144');
