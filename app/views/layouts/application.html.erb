@@ -28,7 +28,7 @@
               <div class="nav-collapse collapse">
                 <nav id="menu">
                   <ul class="nav">
-                    <li><%=link_to "RED Team", root_path, class:"brand logo-small" %></li>
+                    <li><%=link_to "Equipo RED", root_path, class:"brand logo-small" %></li>
                     <li><p class="navbar-text"><b>
                           <% if is_doctor %>
                             Dr.
@@ -41,7 +41,7 @@
                       <li class="dropdown">
                       <a class="dropdown-toggle" data-toggle="dropdown" href="#">Patients<b class="caret bottom-up"></b></a>
                       <ul class="dropdown-menu bottom-up pull-right">
-                        <li><%= link_to "New Patient", new_paciente_path %></li>
+                        <li><%= link_to "Agregar paciente", new_paciente_path %></li>
                       </ul>
                       </li>
                     <% end %>
@@ -54,9 +54,9 @@
                     </ul>
                     </li>
                     <% if is_doctor %>
-                      <li><%= link_to "Add Assistant", new_assistant_path %></li>
+                      <li><%= link_to "Agregar asistente", new_assistant_path %></li>
                     <% end %>
-                    <li><%= link_to "Log Out", logout_path %></li>
+                    <li><%= link_to "Cerrar sesion", logout_path %></li>
                   </ul>
                   <%= form_tag pacientes_path, method: 'get', class: "navbar-form pull-right search-navbar-form" do %>
                     <div class="form-fields">

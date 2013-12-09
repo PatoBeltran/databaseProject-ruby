@@ -6,16 +6,16 @@
 <div class="row">
   <div class="navi col-12">
     <div class="nav-box">
-      <%= link_to "Login", login_path %>
+      <%= link_to "Iniciar sesion", login_path %>
       |
-      <%= link_to "Signup", signup_path %>
+      <%= link_to "Registrate", signup_path %>
     </div>
   </div>
 </div>
 <div class="row right-txt">
   <div class="col-12">
-    <p>Get to the patients.</p>
-    <p>We take care of the rest.</p>
+    <p>Concentrate en los pacientes.</p>
+    <p>Nosotros nos encargamos del resto.</p>
   </div>
 </div>
 <!-- ==================== signup code =============== -->
@@ -25,8 +25,8 @@
         <div class="row">
           <div class="col-12">
             <h2>
-              Welcome! <br />
-              Enter your information.
+              ¡Bienvenido! <br />
+              Ingresa tu informacion.
             </h2>
           </div>
         </div>
@@ -34,27 +34,27 @@
           <div class="col-12">
             <%= form_for @user, class: "no-margin" do |f| %>
               <div class="form-field">
-                <%= f.label :name %><br />
+                <%= f.label :name, "Nombre" %><br />
                 <%= f.text_field :name, class:"input-block" %>
               </div>
               <div class="form-field">
-                <%= f.label :mail %><br />
+                <%= f.label :mail, "Correo" %><br />
                 <%= f.text_field :mail, class:"input-block"  %>
               </div>
               <div class="form-field">
-                <%= f.label :password %><br />
+                <%= f.label :password, "Contraseña" %><br />
                 <%= f.password_field :password, class:"input-block"  %>
               </div>
               <div class="form-field">
-                <%= f.label :password_confirmation %><br />
+                <%= f.label :password_confirmation, "Confirmacion de contraseña" %><br />
                 <%= f.password_field :password_confirmation, class:"input-block"  %>
               </div>
               <div class="actions">
-                <%= f.submit "Sign Up" %>
+                <%= f.submit "Registrar" %>
               </div>
             <% end %>
             <div class="go-back">
-              <%=link_to "Back to home page", root_path %>
+              <%=link_to "Regresar al inicio", root_path %>
             </div>
           </div>
         </div>

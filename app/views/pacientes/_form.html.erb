@@ -15,7 +15,7 @@
       <%= f.text_field :telefono, class:"input-block"  %>
     </div>
     <div class="form-field col-6">
-      <%= f.label :tipo_sangre %><br />
+      <%= f.label :tipo_sangre, "Tipo de Sangre" %><br />
       <%= f.select(:tipo_sangre,options_for_select([['A-','A-'],['A+', 'A+'], ['B-', 'B-'],['B+','B+'],['AB+','AB+'],['AB-','AB-'],['O+','O+'],['O-','O-']])) %>
     </div>
     <div class="form-field col-6">
@@ -27,29 +27,29 @@
       <%= f.text_field :religion, class:"input-block"  %>
     </div>
     <div class="form-field col-6">
-      <%= f.label :edo_civil %><br />
-      <%= f.text_field :edo_civil, class:"input-block"  %>
+      <%= f.label :edo_civil, "Estado Civil" %><br />
+      <%= f.select(:edo_civil, options_for_select([['Casado', 'Casado'], ['Soltero', 'Soltero']])) %>
     </div>
-    <div class="form-field">
-      <%= f.label :fechaNacimiento %><br />
+    <div class="form-field col-12">
+      <%= f.label :fechaNacimiento, "Fecha de Nacimiento" %><br />
       <%= f.text_field :fechaNacimiento, class:"input-block" %>
       <% #, "data-datepicker" => true, "data-format-submit" => "yyyy-mm-dd", "data-select-years" => true, "data-select-months" => true %>
     </div>
-    <div class="form-field">
+    <div class="form-field col-12">
       <%= f.label :direccion %><br />
       <%= f.text_field :direccion, class:"input-block"  %>
     </div>
-    <div class="form-field">
-      <%= f.label :email %><br />
+    <div class="form-field col-12">
+      <%= f.label :email, "Correo" %><br />
       <%= f.text_field :email, class:"input-block"  %>
     </div>
-    <div class="actions">
-      <%= f.submit "Submit" %>
+    <div class="actions col-12">
+      <%= f.submit "Enviar" %>
     </div>
   <% end %>
 </div>
     <div class="go-back">
-      <%=link_to "Go Back", pacientes_path %>
+      <%=link_to "Atras", pacientes_path %>
     </div>
   </div>
 </div>

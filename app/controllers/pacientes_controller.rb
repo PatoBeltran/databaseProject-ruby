@@ -21,7 +21,7 @@ class PacientesController < ApplicationController
 
       ActiveRecord::Base.connection.execute raw_sql
 
-      redirect_to pacientes_url, notice: "¡Tu paciente ha sido agregado!"
+      redirect_to paciente_url(@paciente), notice: "¡Tu paciente ha sido agregado!"
     rescue
       render :new
     end
@@ -41,7 +41,7 @@ class PacientesController < ApplicationController
 
       ActiveRecord::Base.connection.execute raw_sql
 
-      redirect_to pacientes_url, notice: "¡Tu paciente ha sido modificado!"
+      redirect_to paciente_url(@paciente), notice: "¡Tu paciente ha sido modificado!"
     rescue
       render :edit
     end
@@ -49,20 +49,20 @@ class PacientesController < ApplicationController
 
   def show
     @paciente = Paciente.find_by_sql("SELECT * FROM pacientes WHERE pid = '#{params[:id]}';")[0]
+    #@padecimientos = 
   end
 
   def index
+    p = ""
     if params[:search]
       parametros = params[:search].split(" ")
       p = parametros.join("%")
-    else
-      p = ""
     end
-    p << "%"
+    p += "%"
     if is_doctor
-      @pacientes = Paciente.find_by_sql("SELECT  nombre, apellido,  telefono, tipo_sangre, sexo, religion, edo_civil, fechaNacimiento, direccion, email FROM Pacientes WHERE CONCAT(nombre, ' ', apellido) like '#{p}’' AND doc_id = '#{current_user.u_id}';")
+      @pacientes = Paciente.find_by_sql("SELECT pid, nombre, apellido,  telefono, tipo_sangre, sexo, religion, edo_civil, fechaNacimiento, direccion, email FROM Pacientes WHERE CONCAT(nombre, ' ', apellido) like '#{p}' AND doc_id = '#{current_user.u_id}';")
     else
-      @pacientes = Paciente.find_by_sql("SELECT  nombre, apellido,  telefono, tipo_sangre, sexo, religion, edo_civil, fechaNacimiento, direccion, email FROM Pacientes WHERE CONCAT(nombre, ' ', apellido) like '#{p}’' AND doc_id = '#{current_user.doc_id}';")
+      @pacientes = Paciente.find_by_sql("SELECT pid, nombre, apellido,  telefono, tipo_sangre, sexo, religion, edo_civil, fechaNacimiento, direccion, email FROM Pacientes WHERE CONCAT(nombre, ' ', apellido) like '#{p}' AND doc_id = '#{current_user.doc_id}';")
     end
   end
 

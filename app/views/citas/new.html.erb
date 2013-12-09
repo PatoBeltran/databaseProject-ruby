@@ -19,7 +19,6 @@
               <% else %>
                 <%= link_to "Crea un paciente", new_paciente_path %>
               <% end %>
-              <% #, "data-datepicker" => true, "data-format-submit" => "yyyy-mm-dd", "data-select-years" => true, "data-select-months" => true %>
             </div>
             <div class="form-field col-6">
               <%= f.label :fecha %><br />
@@ -31,12 +30,12 @@
               <%= f.text_field :comentario, class:"input-block" %>
             </div>
             <div class="actions">
-              <%= f.submit "Submit" %>
+              <%= f.submit "Enviar" %>
             </div>
           <% end %>
           </div>
           <div class="go-back">
-            <%=link_to "Go Back", pacientes_path %>
+            <%=link_to "Atras", pacientes_path %>
           </div>
         </div>
       </div>
