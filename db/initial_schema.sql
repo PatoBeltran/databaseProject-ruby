@@ -42,9 +42,9 @@ CREATE TABLE Citas(
   fecha date not null,
   comentario varchar(140) not null
     DEFAULT 'sin atender',
-  edad_actual int not null,
-  peso_actual decimal not null,
-  altura_actual decimal not null,
+  edad_actual int default 0 ,
+  peso_actual decimal default 0.00,
+  altura_actual decimal default 0.00,
   doc_id int not null,
   PRIMARY KEY(cid),
   FOREIGN KEY(pid) REFERENCES Pacientes(pid),

@@ -46,9 +46,9 @@ CREATE TABLE `Citas` (
   `pid` int(11) DEFAULT NULL,
   `fecha` date NOT NULL,
   `comentario` varchar(140) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'sin atender',
-  `edad_actual` int(11) NOT NULL,
-  `peso_actual` decimal(10,0) NOT NULL,
-  `altura_actual` decimal(10,0) NOT NULL,
+  `edad_actual` int(11) DEFAULT '0',
+  `peso_actual` decimal(10,0) DEFAULT '0',
+  `altura_actual` decimal(10,0) DEFAULT '0',
   `doc_id` int(11) NOT NULL,
   PRIMARY KEY (`cid`),
   KEY `pid` (`pid`),
@@ -209,5 +209,5 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-12-08 20:06:59
+-- Dump completed on 2013-12-08 22:00:15
 INSERT INTO schema_migrations (version) VALUES ('20131208003144');
